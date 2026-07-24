@@ -1,0 +1,39 @@
+.header {
+  margin: 0;
+
+  color: var(--text-primary);
+
+  border-bottom: 1px solid var(--color-gray-light);
+  background-color: var(--surface-primary);
+}
+
+.wrapper {
+  display: flex;
+  justify-content: left;
+}
+
+.logo {
+  padding: 28px 0;
+  margin-right: 450px;
+}
+
+.navigation {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+
+  padding: 24px 0;
+}
+
+.link {
+  padding: 24px 0;
+
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+.activeLink {
+  color: var(--link-primary);
+}

@@ -1,0 +1,114 @@
+:root {
+  /* Typography */
+  --font-family: "Inter", sans-serif;
+  /* --second-family: "Manrope", sans-serif; */
+
+  /* Base colors */
+  --white: #fff;
+
+  /* Surface colors */
+  --surface-primary: #f7f7f7;
+
+  /* Text colors */
+  --text-primary: #101828;
+
+  /* Link colors */
+  --link-primary: #829b91;
+  --link-primary-hover: #6d7b75;
+
+  /* Black opacity */
+  --opacity-black-20: rgba(0, 0, 0, 0.2);
+
+  --color-gray-light: #f2f4f7;
+
+  /* Colors */
+  --text: #475467;
+  --gray: #6c717b;
+  --border: #dadde1;
+  --button: #e44848;
+  --button-hover: #d84343;
+  --rating: #ffc531;
+  --olive: #f0f1f1;
+}
+
+/* RESET */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  color: var(--text-primary);
+  background-color: var(--white);
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a,
+link {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+img,
+picture,
+svg,
+canvas,
+video {
+  display: block;
+}
+
+img,
+picture,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  max-width: 1440px;
+  padding: 0 64px;
+}
