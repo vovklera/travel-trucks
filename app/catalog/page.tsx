@@ -1,3 +1,9 @@
+import CampersClient from "./CampersClient";
+
 export default function Catalog() {
-  return <p>Catalog</p>;
+  return (
+    <div>
+      <CampersClient />
+    </div>
+  );
 }

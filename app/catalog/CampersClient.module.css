@@ -1,0 +1,5 @@
+.catalogWrap {
+  display: flex;
+  gap: 65px;
+  margin-top: 48px;
+}

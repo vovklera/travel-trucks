@@ -16,13 +16,24 @@ interface FetchCampersResponse {
 
 export const fetchCampers = async (
   page: number = 1,
-  perPage: number = 5,
+  perPage: number = 4,
 ): Promise<FetchCampersResponse> => {
-  const respons = await api.get<FetchCampersResponse>("/campers", {
+  const response = await api.get<FetchCampersResponse>("/campers", {
     params: {
       page,
       perPage,
     },
   });
-  return respons.data;
+  return response.data;
+};
+
+interface getFiltersResponse {
+  forms: string[];
+  transmissions: string[];
+  engines: string[];
+}
+
+export const getFilters = async (): Promise<getFiltersResponse> => {
+  const response = await api.get<getFiltersResponse>("/campers/filters");
+  return response.data;
 };

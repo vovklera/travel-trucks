@@ -11,6 +11,7 @@
 
   /* Text colors */
   --text-primary: #101828;
+  --text-secondary: #475467;
 
   /* Link colors */
   --link-primary: #829b91;
@@ -22,7 +23,6 @@
   --color-gray-light: #f2f4f7;
 
   /* Colors */
-  --text: #475467;
   --gray: #6c717b;
   --border: #dadde1;
   --button: #e44848;
@@ -105,7 +105,7 @@ img,
 picture,
 video {
   max-width: 100%;
-  height: auto;
+  /* height: auto; */
 }
 
 .container {
