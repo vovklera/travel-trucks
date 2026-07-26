@@ -1,7 +1,6 @@
 :root {
   /* Typography */
   --font-family: "Inter", sans-serif;
-  /* --second-family: "Manrope", sans-serif; */
 
   /* Base colors */
   --white: #fff;
@@ -12,26 +11,26 @@
   /* Text colors */
   --text-primary: #101828;
   --text-secondary: #475467;
+  --text-gray: #6c717b;
 
   /* Link colors */
   --link-primary: #829b91;
   --link-primary-hover: #6d7b75;
-
-  /* Black opacity */
-  --opacity-black-20: rgba(0, 0, 0, 0.2);
-
-  --color-gray-light: #f2f4f7;
-
-  /* Colors */
-  --gray: #6c717b;
   --border: #dadde1;
   --button: #e44848;
   --button-hover: #d84343;
+
+  /* Opacity */
+  --opacity-black-20: rgba(0, 0, 0, 0.2);
+  --opacity-white-44: rgba(223, 223, 223, 0.44);
+
+  /* Colors */
+  --color-gray-light: #f2f4f7;
   --rating: #ffc531;
   --olive: #f0f1f1;
 }
 
-/* RESET */
+/* Reset */
 
 *,
 *::before,
@@ -85,6 +84,8 @@ textarea,
 select {
   font: inherit;
   color: inherit;
+  border: none;
+  padding: 0;
 }
 
 button {
@@ -105,10 +106,12 @@ img,
 picture,
 video {
   max-width: 100%;
-  /* height: auto; */
 }
+
+/* Global container */
 
 .container {
   max-width: 1440px;
   padding: 0 64px;
+  margin: 0 auto;
 }

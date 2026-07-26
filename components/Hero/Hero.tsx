@@ -12,7 +12,7 @@ export default function Hero() {
               You can find everything you want in our catalog
             </p>
           </div>
-          <Link className={css.link} href="/">
+          <Link className={css.link} href="/catalog">
             View Now
           </Link>
         </div>

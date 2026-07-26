@@ -1,24 +1,32 @@
 "use client";
 
-import CamperList from "@/components/CamperList/CamperList";
-import { fetchCampers } from "@/lib/api";
-import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
+
+import { Filter } from "@/types/filter";
+import Sidebar from "@/components/Sidebar/Sidebar";
+import CampersSection from "@/components/CampersSection/CampersSection";
+import Loader from "@/components/Loader/Loader";
+
 import css from "./CampersClient.module.css";
 
 export default function CampersClient() {
-  const { data, isPending, isError } = useQuery({
-    queryKey: ["campers"],
-    queryFn: () => fetchCampers(),
+  const [isLoading, setIsLoading] = useState(false);
+
+  const [filters, setFilters] = useState<Filter>({
+    location: "",
+    form: "",
+    engine: "",
+    transmission: "",
   });
 
-  if (isPending) return <p>Loading...</p>;
-
-  if (isError) return <p>Something went wrong.</p>;
-
   return (
-    <div className="container">
-      <div className={css.catalogWrap}>
-        <CamperList campers={data?.campers} />
+    <div className={css.mainContent}>
+      <div className="container">
+        <div className={css.catalogWrap}>
+          {isLoading && <Loader />}
+          <Sidebar onSearch={setFilters} />
+          <CampersSection filters={filters} onLoadingChange={setIsLoading} />
+        </div>
       </div>
     </div>
   );

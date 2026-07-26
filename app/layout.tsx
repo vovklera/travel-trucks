@@ -7,8 +7,9 @@ import Header from "@/components/Header/Header";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Travel Trucks",
-  description: "Campers of your dreams",
+  title: "TravelTrucks",
+  description:
+    "Find and rent campers for comfortable and unforgettable road trips.",
 };
 
 const inter = Inter({

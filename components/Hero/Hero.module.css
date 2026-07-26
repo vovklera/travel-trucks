@@ -3,7 +3,6 @@
   padding: 195px 0 330px 0;
   margin: 0 auto;
 
-  /* background-color: #6c717b; */
   background-image:
     linear-gradient(var(--opacity-black-20), var(--opacity-black-20)),
     url("/images/Hero.webp");
@@ -13,6 +12,8 @@
   background-size: cover, cover;
   background-repeat: no-repeat;
 }
+
+/* Content */
 
 .content {
   display: flex;
@@ -37,6 +38,8 @@
   line-height: 1.33;
   color: var(--surface-primary);
 }
+
+/* Links */
 
 .link {
   display: flex;

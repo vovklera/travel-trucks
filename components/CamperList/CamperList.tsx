@@ -1,8 +1,9 @@
 "use client";
 
-import { Camper } from "@/types/camper";
 import Image from "next/image";
 import Link from "next/link";
+
+import { Camper } from "@/types/camper";
 
 import css from "./CamperList.module.css";
 

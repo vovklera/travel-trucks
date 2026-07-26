@@ -1,0 +1,161 @@
+.sidebar {
+  height: 840px;
+  width: 360px;
+  padding: 24px;
+
+  border-radius: 20px;
+  background-color: var(--surface-primary);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-bottom: 48px;
+}
+
+/* Location */
+
+.location {
+  display: flex;
+  margin-bottom: 8px;
+
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text-gray);
+}
+
+.locationInput {
+  width: 312px;
+  padding: 16px 20px 16px 48px;
+
+  outline: none;
+  border-radius: 12px;
+  background-color: var(--white);
+}
+
+.locationInputWrapper {
+  position: relative;
+}
+
+.locationIcon {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+
+  fill: var(--text-gray);
+}
+
+.locationInput:not(:placeholder-shown) + .locationIcon {
+  fill: var(--text-primary);
+}
+
+/* Filter */
+
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.filtersTitle {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+.filterText {
+  margin-bottom: 8px;
+
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text-gray);
+}
+
+.radioWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.radioContent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text-primary);
+  text-transform: capitalize;
+}
+
+.radio {
+  width: 24px;
+  height: 24px;
+  accent-color: var(--text-secondary);
+  margin: 0px;
+}
+
+/* Buttons */
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.searchButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 56px;
+
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  color: var(--white);
+
+  border-radius: 200px;
+  background-color: var(--link-primary);
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.searchButton:hover {
+  background-color: var(--link-primary-hover);
+}
+
+.closeButtonIcon {
+  fill: var(--text-primary);
+  display: inline;
+}
+
+.clearButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+
+  height: 56px;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+
+  border-radius: 200px;
+  border: 1px solid var(--border);
+  background-color: var(--white);
+
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.clearButton:hover {
+  border-color: var(--link-primary-hover);
+}
