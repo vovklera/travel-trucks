@@ -3,11 +3,11 @@
 import { useState } from "react";
 
 import { Filter } from "@/types/filter";
-import Sidebar from "@/components/Sidebar/Sidebar";
-import CampersSection from "@/components/CampersSection/CampersSection";
+import Filters from "@/components/Filters/Filters/Filters";
 import Loader from "@/components/Loader/Loader";
 
 import css from "./CampersClient.module.css";
+import CamperList from "@/components/Campers/CamperList/CamperList";
 
 export default function CampersClient() {
   const [isLoading, setIsLoading] = useState(false);
@@ -24,8 +24,8 @@ export default function CampersClient() {
       <div className="container">
         <div className={css.catalogWrap}>
           {isLoading && <Loader />}
-          <Sidebar onSearch={setFilters} />
-          <CampersSection filters={filters} onLoadingChange={setIsLoading} />
+          <Filters filters={filters} onSearch={setFilters} />
+          <CamperList filters={filters} onLoadingChange={setIsLoading} />
         </div>
       </div>
     </div>

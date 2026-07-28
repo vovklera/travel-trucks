@@ -1,0 +1,47 @@
+/* Filter */
+
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.filtersTitle {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+.filterText {
+  margin-bottom: 8px;
+
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text-gray);
+}
+
+.radioWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.radioContent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text-primary);
+  text-transform: capitalize;
+}
+
+.radio {
+  width: 24px;
+  height: 24px;
+  accent-color: var(--text-secondary);
+  margin: 0px;
+}

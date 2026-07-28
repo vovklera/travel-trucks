@@ -1,7 +1,7 @@
 import axios from "axios";
 
 import { Camper } from "@/types/camper";
-import { Filter } from "@/types/filter";
+import { EngineType, Filter, FormType, TransmissionType } from "@/types/filter";
 
 const CAMPERS_BASE_URL = process.env.NEXT_PUBLIC_CAMPERS_URL;
 
@@ -25,7 +25,7 @@ export const fetchCampers = async (
     ...Object.fromEntries(Object.entries(filters).filter(([, value]) => value)),
   };
 
-  const response = await api.get("/campers", {
+  const response = await api.get<FetchCampersResponse>("/campers", {
     params,
   });
 
@@ -33,13 +33,13 @@ export const fetchCampers = async (
 };
 
 // FiltersResponse
-export interface getFiltersResponse {
-  forms: string[];
-  transmissions: string[];
-  engines: string[];
+export interface GetFiltersResponse {
+  forms: FormType[];
+  transmissions: TransmissionType[];
+  engines: EngineType[];
 }
 
-export const getFilters = async (): Promise<getFiltersResponse> => {
-  const response = await api.get<getFiltersResponse>("/campers/filters");
+export const getFilters = async (): Promise<GetFiltersResponse> => {
+  const response = await api.get<GetFiltersResponse>("/campers/filters");
   return response.data;
 };
