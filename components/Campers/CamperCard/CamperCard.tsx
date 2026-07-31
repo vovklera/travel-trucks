@@ -1,7 +1,16 @@
-import Link from "next/link";
-import css from "./CamperCard.module.css";
 import Image from "next/image";
+import Link from "next/link";
+
+// Icons
+import { FaStar } from "react-icons/fa";
+import { BsMap } from "react-icons/bs";
+import { BsFuelPump } from "react-icons/bs";
+import { LiaSitemapSolid } from "react-icons/lia";
+import { IoCar } from "react-icons/io5";
+
 import { Camper } from "@/types/camper";
+
+import css from "./CamperCard.module.css";
 
 interface CamperCardProps {
   camper: Camper;
@@ -25,17 +34,13 @@ export default function CamperCard({ camper }: CamperCardProps) {
           </div>
           <div className={css.detailsWrapper}>
             <div className={css.details}>
-              <svg width="16" height="16" className={css.icons}>
-                <use href="/icons.svg#icon-Star-full" />
-              </svg>
+              <FaStar className={`${css.detailsIcons} ${css.starIcon}`} />
               <p>
                 {camper.rating}({camper.totalReviews} Reviews)
               </p>
             </div>
             <div className={css.details}>
-              <svg width="16" height="16" className={css.icons}>
-                <use href="/icons.svg#icon-Map" />
-              </svg>
+              <BsMap className={css.detailsIcons} />
               <p>{camper.location}</p>
             </div>
           </div>
@@ -43,21 +48,15 @@ export default function CamperCard({ camper }: CamperCardProps) {
         <p className={css.description}>{camper.description}</p>
         <ul className={css.badgeList}>
           <li className={css.badgeItem}>
-            <svg width="20" height="20">
-              <use href="/icons.svg#icon-Petrol" />
-            </svg>
+            <BsFuelPump className={css.badgeIcons} />
             <p>{camper.form}</p>
           </li>
           <li className={css.badgeItem}>
-            <svg width="20" height="20">
-              <use href="/icons.svg#icon-Automatic" />
-            </svg>
+            <LiaSitemapSolid className={css.badgeIcons} />
             <p>{camper.engine}</p>
           </li>
           <li className={css.badgeItem}>
-            <svg width="20" height="20">
-              <use href="/icons.svg#icon-Car" />
-            </svg>
+            <IoCar className={css.badgeIcons} />
             <p>{camper.transmission}</p>
           </li>
         </ul>

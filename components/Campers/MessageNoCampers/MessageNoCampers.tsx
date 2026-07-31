@@ -1,7 +1,15 @@
 import Image from "next/image";
+
+// Icons
+import { IoCloseOutline } from "react-icons/io5";
+
 import css from "./MessageNoCampers.module.css";
 
-export default function MessageNoCampers() {
+interface MessageNoCampersProps {
+  onClear: () => void;
+}
+
+export default function MessageNoCampers({ onClear }: MessageNoCampersProps) {
   return (
     <div className={css.messageContainer}>
       <div className={css.imageWrapper}>
@@ -24,14 +32,9 @@ export default function MessageNoCampers() {
         </div>
       </div>
       <div className={css.actions}>
-        <button type="button" className={css.clearButton}>
-          <svg width="24" height="24" className={css.closeButtonIcon}>
-            <use href="/icons.svg#icon-close" />
-          </svg>
+        <button type="button" className={css.clearButton} onClick={onClear}>
+          <IoCloseOutline className={css.closeButtonIcon} />
           Clear filters
-        </button>
-        <button type="button" className={css.viewAllButton}>
-          View all campers
         </button>
       </div>
     </div>

@@ -1,22 +1,30 @@
 "use client";
 
-import { useRef } from "react";
 import { useQuery } from "@tanstack/react-query";
+
+// Icons
+import { IoCloseOutline } from "react-icons/io5";
+import { BsMap } from "react-icons/bs";
 
 import { getFilters } from "@/lib/api";
 import { EngineType, Filter, FormType, TransmissionType } from "@/types/filter";
+import FilterRadio from "../FiltersRadio/FiltersRadio";
 
 import css from "./Filters.module.css";
-import FilterRadio from "../FiltersRadio/FiltersRadio";
 
 interface SidebarProps {
   filters: Filter;
+  setFilters: React.Dispatch<React.SetStateAction<Filter>>;
   onSearch: (filters: Filter) => void;
+  onClear: () => void;
 }
 
-export default function Filters({ filters, onSearch }: SidebarProps) {
-  const formRef = useRef<HTMLFormElement>(null);
-
+export default function Filters({
+  filters,
+  setFilters,
+  onSearch,
+  onClear,
+}: SidebarProps) {
   const {
     data: filtersData,
     isPending,
@@ -29,28 +37,7 @@ export default function Filters({ filters, onSearch }: SidebarProps) {
 
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    const formData = new FormData(e.currentTarget);
-
-    const values: Filter = {
-      location: formData.get("location")?.toString().trim() ?? "",
-      form: (formData.get("form") as FormType) ?? "",
-      engine: (formData.get("engine") as EngineType) ?? "",
-      transmission: (formData.get("transmission") as TransmissionType) ?? "",
-    };
-
-    onSearch(values);
-  };
-
-  const handleClear = () => {
-    formRef.current?.reset();
-
-    onSearch({
-      location: "",
-      form: "",
-      engine: "",
-      transmission: "",
-    });
+    onSearch(filters);
   };
 
   if (isPending) {
@@ -61,6 +48,7 @@ export default function Filters({ filters, onSearch }: SidebarProps) {
     return <aside className={css.sidebar}>Failed to load filters.</aside>;
   }
 
+  // Text formatting for label
   const createOptions = <T extends string>(filterItems: T[]) => {
     return filterItems.map((filterItem) => ({
       label: filterItem
@@ -72,7 +60,7 @@ export default function Filters({ filters, onSearch }: SidebarProps) {
 
   return (
     <aside className={css.sidebar}>
-      <form className={css.form} onSubmit={handleSearch} ref={formRef}>
+      <form className={css.form} onSubmit={handleSearch}>
         <div className={css.content}>
           <div className={css.test}>
             <label htmlFor="location" className={css.location}>
@@ -85,10 +73,15 @@ export default function Filters({ filters, onSearch }: SidebarProps) {
                 name="location"
                 placeholder="City"
                 className={css.locationInput}
+                value={filters.location}
+                onChange={(e) =>
+                  setFilters({
+                    ...filters,
+                    location: e.target.value,
+                  })
+                }
               />
-              <svg width="20" height="20" className={css.locationIcon}>
-                <use href="/icons.svg#icon-Map" />
-              </svg>
+              <BsMap className={css.locationIcon} />
             </div>
           </div>
 
@@ -98,20 +91,26 @@ export default function Filters({ filters, onSearch }: SidebarProps) {
               title="Camper form"
               name="form"
               options={createOptions(filtersData.forms)}
-              // value={filters.form}
-              // onChange={(value) => onSearch({ ...filters, form: value })}
+              value={filters.form}
+              onChange={(value) => setFilters({ ...filters, form: value })}
             />
 
             <FilterRadio<EngineType>
               title="Engine"
               name="engine"
               options={createOptions(filtersData.engines)}
+              value={filters.engine}
+              onChange={(value) => setFilters({ ...filters, engine: value })}
             />
 
             <FilterRadio<TransmissionType>
               title="Transmission"
               name="transmission"
               options={createOptions(filtersData.transmissions)}
+              value={filters.transmission}
+              onChange={(value) =>
+                setFilters({ ...filters, transmission: value })
+              }
             />
           </div>
         </div>
@@ -120,14 +119,8 @@ export default function Filters({ filters, onSearch }: SidebarProps) {
           <button className={css.searchButton} type="submit">
             Search
           </button>
-          <button
-            className={css.clearButton}
-            type="button"
-            onClick={handleClear}
-          >
-            <svg width="24" height="24" className={css.closeButtonIcon}>
-              <use href="/icons.svg#icon-close" />
-            </svg>
+          <button className={css.clearButton} type="button" onClick={onClear}>
+            <IoCloseOutline className={css.closeButtonIcon} />
             Clear filters
           </button>
         </div>

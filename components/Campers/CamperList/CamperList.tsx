@@ -15,11 +15,13 @@ import css from "./CamperList.module.css";
 interface CamperListProps {
   filters: Filter;
   onLoadingChange: (loading: boolean) => void;
+  onClear: () => void;
 }
 
 export default function CamperList({
   filters,
   onLoadingChange,
+  onClear,
 }: CamperListProps) {
   const {
     data,
@@ -61,7 +63,7 @@ export default function CamperList({
 
   return (
     <>
-      {showNoResults && <MessageNoCampers />}
+      {showNoResults && <MessageNoCampers onClear={onClear} />}
 
       {hasCampers && (
         <div className={css.campersSection}>

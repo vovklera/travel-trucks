@@ -1,7 +1,8 @@
 import axios from "axios";
 
 import { Camper } from "@/types/camper";
-import { EngineType, Filter, FormType, TransmissionType } from "@/types/filter";
+import { Filter, FormType, EngineType, TransmissionType } from "@/types/filter";
+import { filterParams } from "@/components/utils/filterParams";
 
 const CAMPERS_BASE_URL = process.env.NEXT_PUBLIC_CAMPERS_URL;
 
@@ -22,7 +23,7 @@ export const fetchCampers = async (
 ): Promise<FetchCampersResponse> => {
   const params = {
     page,
-    ...Object.fromEntries(Object.entries(filters).filter(([, value]) => value)),
+    ...filterParams(filters),
   };
 
   const response = await api.get<FetchCampersResponse>("/campers", {

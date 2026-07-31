@@ -57,10 +57,6 @@
   align-items: center;
 }
 
-.icons {
-  margin: 4px 4px 4px 0;
-}
-
 .description {
   font-size: 16px;
   line-height: 1.5;
@@ -69,6 +65,25 @@
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+}
+
+/* Icons */
+
+.detailsIcons {
+  height: 16px;
+  width: 16px;
+  margin: 4px 4px 4px 0;
+  fill: var(--text-primary);
+}
+
+.starIcon {
+  fill: var(--rating);
+}
+
+.badgeIcons {
+  height: 20px;
+  width: 20px;
+  fill: var(--text-primary);
 }
 
 /* Badges */
