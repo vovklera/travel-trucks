@@ -14,9 +14,12 @@ import css from "./CamperCard.module.css";
 
 interface CamperCardProps {
   camper: Camper;
+  isFirst: boolean;
 }
 
-export default function CamperCard({ camper }: CamperCardProps) {
+export default function CamperCard({ camper, isFirst }: CamperCardProps) {
+  const loading = isFirst ? "eager" : "lazy";
+
   return (
     <li className={css.listItem}>
       <Image
@@ -25,6 +28,7 @@ export default function CamperCard({ camper }: CamperCardProps) {
         width={220}
         height={240}
         className={css.image}
+        loading={loading}
       />
       <div className={css.content}>
         <div>

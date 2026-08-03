@@ -68,8 +68,12 @@ export default function CamperList({
       {hasCampers && (
         <div className={css.campersSection}>
           <ul className={css.list}>
-            {campers.map((camper: Camper) => (
-              <CamperCard key={camper.id} camper={camper} />
+            {campers.map((camper: Camper, index) => (
+              <CamperCard
+                key={camper.id}
+                camper={camper}
+                isFirst={index === 0}
+              />
             ))}
           </ul>
           {hasNextPage && (

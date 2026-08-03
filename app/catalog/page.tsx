@@ -1,12 +1,9 @@
 import { Metadata } from "next";
-import {
-  QueryClient,
-  dehydrate,
-  HydrationBoundary,
-} from "@tanstack/react-query";
+import { QueryClient } from "@tanstack/react-query";
 
 import { getFilters } from "@/lib/api";
 import CampersClient from "./CampersClient";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Camper catalog",
@@ -23,8 +20,10 @@ export default async function Catalog() {
   });
 
   return (
-    <HydrationBoundary state={dehydrate(queryClient)}>
+    // <HydrationBoundary state={dehydrate(queryClient)}>
+    <Suspense fallback={null}>
       <CampersClient />
-    </HydrationBoundary>
+    </Suspense>
+    // </HydrationBoundary>
   );
 }

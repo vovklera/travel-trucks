@@ -54,12 +54,14 @@ export default function CampersClient() {
       <div className="container">
         <div className={css.catalogWrap}>
           {isLoading && <Loader />}
+
           <Filters
             filters={filters}
             setFilters={setFilters}
             onSearch={handleSearch}
             onClear={handleClear}
           />
+
           <CamperList
             filters={submittedFilters}
             onLoadingChange={setIsLoading}

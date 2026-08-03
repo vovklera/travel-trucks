@@ -18,6 +18,7 @@ export default function MessageNoCampers({ onClear }: MessageNoCampersProps) {
           alt="No campers found"
           width={488}
           height={463}
+          loading="eager"
         />
       </div>
       <div className={css.message}>
