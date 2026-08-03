@@ -80,6 +80,7 @@ link {
 
 button,
 input,
+fieldset,
 textarea,
 select {
   font: inherit;

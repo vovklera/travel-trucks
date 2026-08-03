@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 
 // Icons
 import { FaStar } from "react-icons/fa";
@@ -64,9 +63,6 @@ export default function CamperCard({ camper, isFirst }: CamperCardProps) {
             <p>{camper.transmission}</p>
           </li>
         </ul>
-        <Link href={camper.id} className={css.link}>
-          Show more
-        </Link>
       </div>
     </li>
   );
