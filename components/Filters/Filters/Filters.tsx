@@ -40,14 +40,6 @@ export default function Filters({
     onSearch(filters);
   };
 
-  if (isPending) {
-    return <aside className={css.sidebar}>Loading filters...</aside>;
-  }
-
-  if (isError || !filtersData) {
-    return <aside className={css.sidebar}>Failed to load filters.</aside>;
-  }
-
   // Text formatting for label
   const createOptions = <T extends string>(filterItems: T[]) => {
     return filterItems.map((filterItem) => ({
@@ -57,6 +49,14 @@ export default function Filters({
       value: filterItem,
     }));
   };
+
+  if (isPending) {
+    return <aside className={css.sidebar}>Loading filters...</aside>;
+  }
+
+  if (isError || !filtersData) {
+    return <aside className={css.sidebar}>Failed to load filters.</aside>;
+  }
 
   return (
     <aside className={css.sidebar}>

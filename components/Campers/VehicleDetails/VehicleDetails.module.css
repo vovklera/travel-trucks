@@ -1,0 +1,54 @@
+/*Vehicle details*/
+
+.vehicleWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.vehicleTitle {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.33;
+  color: var(--text-primary);
+}
+
+.badgesContainer {
+  display: flex;
+  gap: 8px;
+
+  max-width: 602px;
+}
+
+.badgesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+  max-height: 48px;
+  transition: max-height 250ms ease;
+}
+
+.showAllBages {
+  overflow: visible;
+  max-height: 500px;
+}
+
+.showAllButton {
+  padding: 5px 0;
+  color: var(--text-secondary);
+
+  font-size: 14px;
+}
+
+.badgeItem {
+  /* width: 115px;
+  height: 48px; */
+
+  padding: 12px 18px;
+
+  border-radius: 100px;
+
+  background: var(--color-gray-light);
+  mix-blend-mode: multiply;
+}

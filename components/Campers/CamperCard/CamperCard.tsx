@@ -10,6 +10,7 @@ import { IoCar } from "react-icons/io5";
 import { Camper } from "@/types/camper";
 
 import css from "./CamperCard.module.css";
+import Link from "next/link";
 
 interface CamperCardProps {
   camper: Camper;
@@ -63,6 +64,9 @@ export default function CamperCard({ camper, isFirst }: CamperCardProps) {
             <p>{camper.transmission}</p>
           </li>
         </ul>
+        <Link href={`catalog/${camper.id}`} className={css.link}>
+          Show more
+        </Link>
       </div>
     </li>
   );

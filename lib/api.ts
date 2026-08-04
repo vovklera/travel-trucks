@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { Camper } from "@/types/camper";
+import { Camper, CamperReviews } from "@/types/camper";
 import { Filter, FormType, EngineType, TransmissionType } from "@/types/filter";
 import { filterParams } from "@/components/utils/filterParams";
 
@@ -42,5 +42,17 @@ export interface GetFiltersResponse {
 
 export const getFilters = async (): Promise<GetFiltersResponse> => {
   const response = await api.get<GetFiltersResponse>("/campers/filters");
+  return response.data;
+};
+
+export const getCamperById = async (camperId: string): Promise<Camper> => {
+  const response = await api.get<Camper>(`/campers/${camperId}`);
+  return response.data;
+};
+
+export const getCamperByIdReviews = async (
+  camperId: string,
+): Promise<CamperReviews> => {
+  const response = await api.get<CamperReviews>(`/campers/${camperId}/reviews`);
   return response.data;
 };
