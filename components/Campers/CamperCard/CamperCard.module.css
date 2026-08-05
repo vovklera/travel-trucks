@@ -70,8 +70,8 @@
 /* Icons */
 
 .detailsIcons {
-  height: 16px;
   width: 16px;
+  height: 16px;
   margin: 4px 4px 4px 0;
   fill: var(--text-primary);
 }
@@ -81,8 +81,8 @@
 }
 
 .badgeIcons {
-  height: 20px;
   width: 20px;
+  height: 20px;
   fill: var(--text-primary);
 }
 
@@ -120,8 +120,8 @@
   align-items: center;
   justify-content: center;
 
-  height: 56px;
   width: 173px;
+  height: 56px;
 
   font-size: 16px;
   font-weight: 500;

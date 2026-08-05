@@ -2,13 +2,13 @@
 
 import { useQuery } from "@tanstack/react-query";
 
-// Icons
 import { IoCloseOutline } from "react-icons/io5";
 import { BsMap } from "react-icons/bs";
 
 import { getFilters } from "@/lib/api";
 import { EngineType, Filter, FormType, TransmissionType } from "@/types/filter";
 import FilterRadio from "../FiltersRadio/FiltersRadio";
+import { createOptions } from "@/components/utils/formatLabel";
 
 import css from "./Filters.module.css";
 
@@ -38,16 +38,6 @@ export default function Filters({
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     onSearch(filters);
-  };
-
-  // Text formatting for label
-  const createOptions = <T extends string>(filterItems: T[]) => {
-    return filterItems.map((filterItem) => ({
-      label: filterItem
-        .replaceAll("_", " ")
-        .replace(/^./, (character) => character.toUpperCase()),
-      value: filterItem,
-    }));
   };
 
   if (isPending) {

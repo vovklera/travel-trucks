@@ -1,6 +1,6 @@
 import Image from "next/image";
+import Link from "next/link";
 
-// Icons
 import { FaStar } from "react-icons/fa";
 import { BsMap } from "react-icons/bs";
 import { BsFuelPump } from "react-icons/bs";
@@ -8,9 +8,9 @@ import { LiaSitemapSolid } from "react-icons/lia";
 import { IoCar } from "react-icons/io5";
 
 import { Camper } from "@/types/camper";
+import { formatLocation, formatText } from "@/components/utils/formatLabel";
 
 import css from "./CamperCard.module.css";
-import Link from "next/link";
 
 interface CamperCardProps {
   camper: Camper;
@@ -19,6 +19,21 @@ interface CamperCardProps {
 
 export default function CamperCard({ camper, isFirst }: CamperCardProps) {
   const loading = isFirst ? "eager" : "lazy";
+
+  const badges = [
+    {
+      icon: BsFuelPump,
+      label: formatText(camper.form),
+    },
+    {
+      icon: LiaSitemapSolid,
+      label: formatText(camper.engine),
+    },
+    {
+      icon: IoCar,
+      label: formatText(camper.transmission),
+    },
+  ];
 
   return (
     <li className={css.listItem}>
@@ -45,25 +60,25 @@ export default function CamperCard({ camper, isFirst }: CamperCardProps) {
             </div>
             <div className={css.details}>
               <BsMap className={css.detailsIcons} />
-              <p>{camper.location}</p>
+              <p>{formatLocation(camper.location)}</p>
             </div>
           </div>
         </div>
         <p className={css.description}>{camper.description}</p>
+
         <ul className={css.badgeList}>
-          <li className={css.badgeItem}>
-            <BsFuelPump className={css.badgeIcons} />
-            <p>{camper.form}</p>
-          </li>
-          <li className={css.badgeItem}>
-            <LiaSitemapSolid className={css.badgeIcons} />
-            <p>{camper.engine}</p>
-          </li>
-          <li className={css.badgeItem}>
-            <IoCar className={css.badgeIcons} />
-            <p>{camper.transmission}</p>
-          </li>
+          {badges.map((badge) => {
+            const Icon = badge.icon;
+
+            return (
+              <li key={badge.label} className={css.badgeItem}>
+                <Icon className={css.badgeIcons} />
+                <p>{badge.label}</p>
+              </li>
+            );
+          })}
         </ul>
+
         <Link href={`catalog/${camper.id}`} className={css.link}>
           Show more
         </Link>

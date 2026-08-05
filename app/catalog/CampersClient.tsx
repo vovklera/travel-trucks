@@ -4,8 +4,8 @@ import { useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
 import { EngineType, Filter, FormType, TransmissionType } from "@/types/filter";
-import { filterParams } from "@/components/utils/filterParams";
 
+import { filterParams } from "@/components/utils/filterParams";
 import Filters from "@/components/Filters/Filters/Filters";
 import Loader from "@/components/Loader/Loader";
 import CamperList from "@/components/Campers/CamperList/CamperList";

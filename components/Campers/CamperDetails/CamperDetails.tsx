@@ -2,6 +2,7 @@ import { FaStar } from "react-icons/fa";
 import { BsMap } from "react-icons/bs";
 
 import { VehicleSpec } from "@/types/camper";
+import { formatLocation } from "@/components/utils/formatLabel";
 import VehicleDetails from "../VehicleDetails/VehicleDetails";
 
 import css from "./CamperDetails.module.css";
@@ -41,7 +42,7 @@ export default function CamperDetails({
             </div>
             <div className={css.infoItem}>
               <BsMap className={css.detailsIcons} />
-              <p className={css.vehicleRating}>{location}</p>
+              <p className={css.vehicleRating}>{formatLocation(location)}</p>
             </div>
           </div>
           <p className={css.price}>€{price}</p>
@@ -50,6 +51,7 @@ export default function CamperDetails({
       </div>
       <div className={css.vehicleInfo}>
         <VehicleDetails badges={badges} />
+        <div className={css.separateLine}></div>
         <ul className={css.specsList}>
           {specs.map((spec) => (
             <li key={spec.label} className={css.specsItem}>

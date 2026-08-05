@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { formatText } from "@/components/utils/formatLabel";
 import css from "./VehicleDetails.module.css";
 
 interface VehicleDetailsProps {
@@ -27,7 +28,7 @@ export default function VehicleDetails({ badges }: VehicleDetailsProps) {
       >
         {badges.map((badge) => (
           <li key={badge} className={css.badgeItem}>
-            <p>{badge}</p>
+            <p>{formatText(badge)}</p>
           </li>
         ))}
       </ul>
