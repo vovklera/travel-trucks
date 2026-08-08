@@ -41,6 +41,7 @@ export default async function CamperPage({ params }: PageProps) {
         description={camper.description}
         badges={vehicleBadges}
         specs={vehicleSpecs}
+        gallery={camper.gallery}
       />
     </div>
   );

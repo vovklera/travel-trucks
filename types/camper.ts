@@ -13,7 +13,7 @@ export interface Camper {
   transmission: string;
   engine: string;
   amenities: string[];
-  gallery: CamperGallery[];
+  gallery: GalleryImage[];
 
   length: string;
   width: string;
@@ -29,7 +29,7 @@ export interface VehicleSpec {
   value: string;
 }
 
-export interface CamperGallery {
+export interface GalleryImage {
   id: string;
   camperId: string;
   thumb: string;

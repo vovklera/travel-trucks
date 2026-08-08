@@ -1,9 +1,14 @@
+.camperDetails {
+  display: flex;
+  gap: 24px;
+
+  padding: 64px 0;
+}
+
 .vehicleWrapper {
   display: flex;
   flex-direction: column;
   gap: 16px;
-
-  padding: 64px 0;
 }
 
 .vehicleInfo {
@@ -12,6 +17,10 @@
 
   border-radius: 16px;
   background-color: var(--surface-primary);
+}
+
+.vehicleBlock {
+  min-height: 304px;
 }
 
 .title {
