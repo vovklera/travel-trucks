@@ -4,9 +4,9 @@ import { BsMap } from "react-icons/bs";
 import { GalleryImage, VehicleSpec } from "@/types/camper";
 import { formatLocation } from "@/components/utils/formatLabel";
 import VehicleDetails from "../VehicleDetails/VehicleDetails";
+import CamperGallery from "@/components/Campers/CamperGallery/CamperGallery";
 
 import css from "./CamperDetails.module.css";
-import CamperGallery from "@/components/CamperGallery/CamperGallery";
 
 interface CamperDetailsProps {
   name: string;

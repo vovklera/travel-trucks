@@ -1,0 +1,48 @@
+import { FaStar } from "react-icons/fa";
+
+import { CamperReviews } from "@/types/camper";
+import BookingForm from "../BookingForm/BookingForm";
+
+import css from "./ReviewsSection.module.css";
+
+interface ReviewsSectionProps {
+  reviews: CamperReviews[];
+}
+
+export default function ReviewsSection({ reviews }: ReviewsSectionProps) {
+  return (
+    <div>
+      <h2 className={css.reviewsTitle}>Reviews</h2>
+      <ul className={css.reviewsList}>
+        {reviews.map((review) => (
+          <li key={review.id} className={css.reviewItem}>
+            <div className={css.reviewerInfo}>
+              <div className={css.reviewerAvatar}>
+                {review.reviewer_name.charAt(0).toUpperCase()}
+              </div>
+              <div className={css.reviewerRate}>
+                <p>{review.reviewer_name}</p>
+                <div className={css.rating}>
+                  {Array.from({ length: 5 }, (_, index) => (
+                    <FaStar
+                      key={index}
+                      className={
+                        index < review.reviewer_rating
+                          ? css.fullStar
+                          : css.emptyStar
+                      }
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+            <p className={css.reviewerComment}>{review.comment}</p>
+          </li>
+        ))}
+      </ul>
+      <div>
+        <BookingForm />
+      </div>
+    </div>
+  );
+}

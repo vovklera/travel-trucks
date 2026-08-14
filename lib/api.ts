@@ -52,7 +52,9 @@ export const getCamperById = async (camperId: string): Promise<Camper> => {
 
 export const getCamperByIdReviews = async (
   camperId: string,
-): Promise<CamperReviews> => {
-  const response = await api.get<CamperReviews>(`/campers/${camperId}/reviews`);
+): Promise<CamperReviews[]> => {
+  const response = await api.get<CamperReviews[]>(
+    `/campers/${camperId}/reviews`,
+  );
   return response.data;
 };

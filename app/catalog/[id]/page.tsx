@@ -1,6 +1,7 @@
-import { getCamperById } from "@/lib/api";
+import { getCamperById, getCamperByIdReviews } from "@/lib/api";
 import CamperDetails from "@/components/Campers/CamperDetails/CamperDetails";
 import { formatText, removeLetters } from "@/components/utils/formatLabel";
+import ReviewsSection from "@/components/Campers/ReviewsSection/ReviewsSection";
 
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -9,6 +10,7 @@ interface PageProps {
 export default async function CamperPage({ params }: PageProps) {
   const { id } = await params;
   const camper = await getCamperById(id);
+  const reviews = await getCamperByIdReviews(id);
 
   const vehicleBadges = [
     camper.transmission,
@@ -43,6 +45,7 @@ export default async function CamperPage({ params }: PageProps) {
         specs={vehicleSpecs}
         gallery={camper.gallery}
       />
+      <ReviewsSection reviews={reviews} />
     </div>
   );
 }
