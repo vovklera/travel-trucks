@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { Camper, CamperReviews } from "@/types/camper";
+import { BookingRequest, Camper, CamperReviews } from "@/types/camper";
 import { Filter, FormType, EngineType, TransmissionType } from "@/types/filter";
 import { filterParams } from "@/components/utils/filterParams";
 
@@ -55,6 +55,17 @@ export const getCamperByIdReviews = async (
 ): Promise<CamperReviews[]> => {
   const response = await api.get<CamperReviews[]>(
     `/campers/${camperId}/reviews`,
+  );
+  return response.data;
+};
+
+export const createBookingReq = async (
+  camperId: string,
+  data: BookingRequest,
+): Promise<BookingRequest> => {
+  const response = await api.post<BookingRequest>(
+    `/campers/${camperId}/booking-requests`,
+    data,
   );
   return response.data;
 };

@@ -45,7 +45,7 @@ export default async function CamperPage({ params }: PageProps) {
         specs={vehicleSpecs}
         gallery={camper.gallery}
       />
-      <ReviewsSection reviews={reviews} />
+      <ReviewsSection reviews={reviews} camperId={id} />
     </div>
   );
 }
