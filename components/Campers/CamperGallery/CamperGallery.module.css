@@ -1,31 +1,43 @@
-.mainSwiper {
+/* Main photo*/
+
+.swiperMainWrap {
   width: 638px;
   height: 505px;
 }
 
-.mainImage {
+.mainSwiper {
   width: 100%;
   height: 100%;
+}
 
+.mainSwiper :global(.swiper-slide) {
+  position: relative;
+}
+
+.mainImage {
   object-fit: cover;
   border-radius: 17px;
 }
 
-.thumbsSwiper {
-  width: 638px;
+/* Thumbs photos*/
+
+.swiperThumbsWrap {
+  width: 636px;
   height: 145px;
+}
+
+.thumbsSwiper {
+  width: 100%;
+  height: 100%;
 
   margin-top: 27px;
 }
 
 .thumbsSwiper :global(.swiper-slide) {
-  width: 135px;
-  height: 145px;
+  position: relative;
 }
 
 .thumbsImage {
-  width: 100%;
-  height: 100%;
   object-fit: cover;
   border-radius: 16px;
 }

@@ -44,8 +44,3 @@ export interface CamperReviews {
   reviewer_rating: number;
   comment: string;
 }
-
-export interface BookingRequest {
-  name: string;
-  email: string;
-}

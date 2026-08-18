@@ -31,46 +31,50 @@ export default function CamperGallery({
 
   return (
     <>
-      <Swiper
-        spaceBetween={10}
-        thumbs={{ swiper: thumbsSwiper }}
-        modules={[FreeMode, Thumbs]}
-        className={css.mainSwiper}
-      >
-        {gallery.map((image) => (
-          <SwiperSlide key={image.id}>
-            <Image
-              src={image.original}
-              alt={`${camperName} photo`}
-              width={640}
-              height={505}
-              className={css.mainImage}
-              loading="eager"
-            />
-          </SwiperSlide>
-        ))}
-      </Swiper>
-      <Swiper
-        onSwiper={setThumbsSwiper}
-        spaceBetween={32}
-        slidesPerView={4}
-        freeMode={true}
-        watchSlidesProgress={true}
-        modules={[FreeMode, Thumbs]}
-        className={css.thumbsSwiper}
-      >
-        {gallery.map((image) => (
-          <SwiperSlide key={image.id}>
-            <Image
-              src={image.thumb}
-              alt={`${camperName} photo`}
-              width={140}
-              height={145}
-              className={css.thumbsImage}
-            />
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      <div className={css.swiperMainWrap}>
+        <Swiper
+          spaceBetween={10}
+          thumbs={{ swiper: thumbsSwiper }}
+          modules={[FreeMode, Thumbs]}
+          className={css.mainSwiper}
+        >
+          {gallery.map((image) => (
+            <SwiperSlide key={image.id}>
+              <Image
+                src={image.original}
+                alt={`${camperName} photo`}
+                fill
+                sizes="638px"
+                className={css.mainImage}
+                loading="eager"
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+      <div className={css.swiperThumbsWrap}>
+        <Swiper
+          onSwiper={setThumbsSwiper}
+          spaceBetween={32}
+          slidesPerView={4}
+          freeMode={true}
+          watchSlidesProgress={true}
+          modules={[FreeMode, Thumbs]}
+          className={css.thumbsSwiper}
+        >
+          {gallery.map((image) => (
+            <SwiperSlide key={image.id}>
+              <Image
+                src={image.thumb}
+                alt={`${camperName} photo`}
+                fill
+                sizes="136px"
+                className={css.thumbsImage}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </>
   );
 }

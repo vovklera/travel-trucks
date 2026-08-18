@@ -1,7 +1,7 @@
 import { FaStar } from "react-icons/fa";
 
 import { CamperReviews } from "@/types/camper";
-import BookingForm from "../BookingForm/BookingForm";
+import BookingForm from "../../BookingForm/BookingForm/BookingForm";
 
 import css from "./ReviewsSection.module.css";
 

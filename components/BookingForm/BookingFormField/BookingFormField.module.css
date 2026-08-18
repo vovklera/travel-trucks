@@ -1,0 +1,78 @@
+.formField {
+  position: relative;
+}
+
+.formInput {
+  width: 100%;
+  padding: 18px;
+
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+
+  border-radius: 12px;
+  background: var(--surface-primary);
+}
+
+.formInput:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px var(--surface-primary) inset;
+}
+
+.formInput::placeholder {
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text-gray);
+}
+
+.formLabel {
+  position: absolute;
+  top: -25%;
+  left: 18px;
+  transform: translateY(25%);
+
+  width: 54px;
+  height: 16px;
+  padding: 0 8px;
+
+  font-size: 12px;
+  line-height: 1.33;
+  color: var(--error-red);
+
+  border-radius: 8px;
+  background-color: var(--error-light);
+}
+
+/* Errors */
+
+.errorMessage {
+  margin-top: 0;
+
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--button);
+}
+
+.inputError {
+  border: 1px solid var(--button);
+  background-color: var(--error-light);
+}
+
+.inputError:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px var(--error-light) inset;
+}
+
+.inputError::placeholder {
+  color: var(--button);
+}
+
+.errorIcon {
+  position: absolute;
+  top: 50%;
+  right: 0%;
+  transform: translate(-50%, -50%);
+
+  width: 24px;
+  height: 24px;
+
+  color: var(--error-red);
+}

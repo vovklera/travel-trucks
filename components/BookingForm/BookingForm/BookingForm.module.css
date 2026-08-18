@@ -1,6 +1,6 @@
 .bookingForm {
   width: 641px;
-  padding: 44px;
+  padding: 44px 57px;
 
   border-radius: 16px;
   border: 1px solid var(--border);
@@ -11,7 +11,7 @@
 }
 
 .bookingTitle {
-  margin-top: 8px;
+  margin-bottom: 8px;
 
   font-size: 20px;
   font-weight: 600;
@@ -25,25 +25,10 @@
   color: var(--text-gray);
 }
 
-.form {
+.formFields {
   display: flex;
   flex-direction: column;
   gap: 14px;
-}
-
-.formInput {
-  width: 527px;
-  padding: 18px;
-
-  border-radius: 12px;
-
-  background: var(--surface-primary);
-}
-
-.formInput::placeholder {
-  font-size: 16px;
-  line-height: 1.5;
-  color: var(--text-gray);
 }
 
 .sendButton {
@@ -51,7 +36,9 @@
   align-items: center;
   justify-content: center;
 
+  width: 100%;
   height: 56px;
+  margin-top: 24px;
 
   font-size: 16px;
   font-weight: 500;
@@ -67,4 +54,9 @@
 
 .sendButton:hover {
   background-color: var(--link-primary-hover);
+}
+
+.sendButton:disabled {
+  opacity: 0.5;
+  pointer-events: none;
 }

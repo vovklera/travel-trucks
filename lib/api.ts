@@ -1,7 +1,9 @@
 import axios from "axios";
 
-import { BookingRequest, Camper, CamperReviews } from "@/types/camper";
+import { Camper, CamperReviews } from "@/types/camper";
 import { Filter, FormType, EngineType, TransmissionType } from "@/types/filter";
+import { BookingRequest, BookingResponse } from "@/types/booking";
+
 import { filterParams } from "@/components/utils/filterParams";
 
 const CAMPERS_BASE_URL = process.env.NEXT_PUBLIC_CAMPERS_URL;
@@ -62,8 +64,8 @@ export const getCamperByIdReviews = async (
 export const createBookingReq = async (
   camperId: string,
   data: BookingRequest,
-): Promise<BookingRequest> => {
-  const response = await api.post<BookingRequest>(
+): Promise<BookingResponse> => {
+  const response = await api.post<BookingResponse>(
     `/campers/${camperId}/booking-requests`,
     data,
   );

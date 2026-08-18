@@ -20,6 +20,10 @@
   --button: #e44848;
   --button-hover: #d84343;
 
+  /* Error colors */
+  --error-light: #ffdfdf;
+  --error-red: #ec383b;
+
   /* Opacity */
   --opacity-black-20: rgba(0, 0, 0, 0.2);
   --opacity-white-44: rgba(223, 223, 223, 0.44);
@@ -40,6 +44,7 @@
 
 body {
   font-family: var(--font-family);
+  font-weight: 400;
   color: var(--text-primary);
   background-color: var(--white);
   margin: 0;
@@ -87,6 +92,11 @@ select {
   color: inherit;
   border: none;
   padding: 0;
+  outline: none;
+}
+
+input:focus {
+  outline: none;
 }
 
 button {

@@ -79,7 +79,11 @@ export default function CamperCard({ camper, isFirst }: CamperCardProps) {
           })}
         </ul>
 
-        <Link href={`catalog/${camper.id}`} className={css.link}>
+        <Link
+          href={`catalog/${camper.id}`}
+          target="_blank"
+          className={css.link}
+        >
           Show more
         </Link>
       </div>
