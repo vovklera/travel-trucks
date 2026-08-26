@@ -58,8 +58,10 @@ export default function CampersClient() {
           <Filters
             filters={filters}
             setFilters={setFilters}
+            submittedFilters={submittedFilters}
             onSearch={handleSearch}
             onClear={handleClear}
+            isLoading={isLoading}
           />
 
           <CamperList

@@ -31,7 +31,6 @@ export default function CamperList({
     isFetching,
     isFetched,
     isError,
-    error,
   } = useInfiniteQuery({
     queryKey: ["campers", filters],
     queryFn: ({ pageParam }) => {
@@ -58,8 +57,11 @@ export default function CamperList({
   const hasCampers = campers.length > 0;
   const showNoResults = isFetched && !isError && !hasCampers;
 
-  // TODO create error ui component
-  if (error) return <p>Something went wrong</p>;
+  if (isError) {
+    return (
+      <p className={css.errorText}>Something went wrong. Please try again.</p>
+    );
+  }
 
   return (
     <>

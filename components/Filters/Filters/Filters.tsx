@@ -15,15 +15,19 @@ import css from "./Filters.module.css";
 interface SidebarProps {
   filters: Filter;
   setFilters: React.Dispatch<React.SetStateAction<Filter>>;
+  submittedFilters: Filter;
   onSearch: (filters: Filter) => void;
   onClear: () => void;
+  isLoading: boolean;
 }
 
 export default function Filters({
   filters,
   setFilters,
+  submittedFilters,
   onSearch,
   onClear,
+  isLoading,
 }: SidebarProps) {
   const {
     data: filtersData,
@@ -40,12 +44,22 @@ export default function Filters({
     onSearch(filters);
   };
 
-  if (isPending) {
-    return <aside className={css.sidebar}>Loading filters...</aside>;
+  const isFiltersEmpty = Object.values(filters).every((value) => !value);
+  const isFiltersChanged =
+    JSON.stringify(filters) == JSON.stringify(submittedFilters);
+
+  if (!filtersData) {
+    return null;
   }
 
-  if (isError || !filtersData) {
-    return <aside className={css.sidebar}>Failed to load filters.</aside>;
+  if (isError) {
+    return (
+      <aside className={css.sidebar}>
+        <p className={css.errorText}>
+          Something went wrong while loading filters.
+        </p>
+      </aside>
+    );
   }
 
   return (
@@ -106,10 +120,19 @@ export default function Filters({
         </div>
 
         <div className={css.actions}>
-          <button className={css.searchButton} type="submit">
+          <button
+            className={css.searchButton}
+            type="submit"
+            disabled={isLoading || isFiltersChanged}
+          >
             Search
           </button>
-          <button className={css.clearButton} type="button" onClick={onClear}>
+          <button
+            className={css.clearButton}
+            type="button"
+            onClick={onClear}
+            disabled={isLoading || isFiltersEmpty}
+          >
             <IoCloseOutline className={css.closeButtonIcon} />
             Clear filters
           </button>

@@ -39,3 +39,13 @@
 .loadMoreButton:hover {
   border-color: var(--link-primary-hover);
 }
+
+/* Error */
+
+.errorText {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+  color: var(--text-primary);
+}
