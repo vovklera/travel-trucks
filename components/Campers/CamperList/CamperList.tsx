@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { useInfiniteQuery } from "@tanstack/react-query";
+import { keepPreviousData, useInfiniteQuery } from "@tanstack/react-query";
 
 import { fetchCampers } from "@/lib/api";
 import { Camper } from "@/types/camper";
@@ -36,6 +36,7 @@ export default function CamperList({
     queryFn: ({ pageParam }) => {
       return fetchCampers(pageParam, filters);
     },
+    placeholderData: keepPreviousData,
     initialPageParam: 1,
 
     getNextPageParam: (lastPage) => {

@@ -3,32 +3,30 @@
 import { useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
-import { EngineType, Filter, FormType, TransmissionType } from "@/types/filter";
+import { Filter } from "@/types/filter";
 
-import { filterParams } from "@/components/utils/filterParams";
+import {
+  filterParams,
+  filterSearchParams,
+} from "@/components/utils/filterParams";
 import Filters from "@/components/Filters/Filters/Filters";
 import Loader from "@/components/Loader/Loader";
 import CamperList from "@/components/Campers/CamperList/CamperList";
 
 import css from "./CampersClient.module.css";
 
+const initialFilters: Filter = {
+  location: "",
+  form: "",
+  engine: "",
+  transmission: "",
+};
+
 export default function CampersClient() {
   const router = useRouter();
+
   const searchParams = useSearchParams();
-
-  const initialFilters: Filter = {
-    location: "",
-    form: "",
-    engine: "",
-    transmission: "",
-  };
-
-  const urlFilters: Filter = {
-    location: searchParams.get("location") ?? "",
-    form: (searchParams.get("form") as FormType) ?? "",
-    engine: (searchParams.get("engine") as EngineType) ?? "",
-    transmission: (searchParams.get("transmission") as TransmissionType) ?? "",
-  };
+  const urlFilters = filterSearchParams(searchParams);
 
   const [filters, setFilters] = useState(urlFilters);
   const [submittedFilters, setSubmittedFilters] = useState(urlFilters);

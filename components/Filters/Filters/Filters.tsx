@@ -29,11 +29,7 @@ export default function Filters({
   onClear,
   isLoading,
 }: SidebarProps) {
-  const {
-    data: filtersData,
-    isPending,
-    isError,
-  } = useQuery({
+  const { data: filtersData, isError } = useQuery({
     queryKey: ["filters"],
     queryFn: getFilters,
     refetchOnMount: false,
@@ -48,10 +44,6 @@ export default function Filters({
   const isFiltersChanged =
     JSON.stringify(filters) == JSON.stringify(submittedFilters);
 
-  if (!filtersData) {
-    return null;
-  }
-
   if (isError) {
     return (
       <aside className={css.sidebar}>
@@ -60,6 +52,10 @@ export default function Filters({
         </p>
       </aside>
     );
+  }
+
+  if (!filtersData) {
+    return null;
   }
 
   return (
