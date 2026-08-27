@@ -1,3 +1,5 @@
+import { notFound } from "next/navigation";
+
 import { getCamperById, getCamperByIdReviews } from "@/lib/api";
 import CamperDetails from "@/components/Campers/CamperDetails/CamperDetails";
 import { formatText, removeLetters } from "@/components/utils/formatLabel";
@@ -10,6 +12,11 @@ interface PageProps {
 export default async function CamperPage({ params }: PageProps) {
   const { id } = await params;
   const camper = await getCamperById(id);
+
+  if (!camper) {
+    notFound();
+  }
+
   const reviews = await getCamperByIdReviews(id);
 
   const vehicleBadges = [

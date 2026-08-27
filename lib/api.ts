@@ -47,9 +47,18 @@ export const getFilters = async (): Promise<GetFiltersResponse> => {
   return response.data;
 };
 
-export const getCamperById = async (camperId: string): Promise<Camper> => {
-  const response = await api.get<Camper>(`/campers/${camperId}`);
-  return response.data;
+export const getCamperById = async (
+  camperId: string,
+): Promise<Camper | null> => {
+  try {
+    const response = await api.get<Camper>(`/campers/${camperId}`);
+    return response.data;
+  } catch (error) {
+    if (axios.isAxiosError(error) && error.response?.status === 404) {
+      return null;
+    }
+    throw error;
+  }
 };
 
 export const getCamperByIdReviews = async (
