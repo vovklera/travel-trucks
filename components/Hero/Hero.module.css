@@ -1,16 +1,29 @@
 .hero {
+  width: 100%;
   max-width: 1440px;
-  padding: 195px 0 330px 0;
+  height: 700px;
+
   margin: 0 auto;
+  padding: 195px 0 330px 0;
 
   background-image:
     linear-gradient(var(--opacity-black-20), var(--opacity-black-20)),
     url("/images/Hero.webp");
+
+  background-repeat: no-repeat;
+  background-size: cover;
+
   background-position:
     center,
     center -68px;
-  background-size: cover, cover;
-  background-repeat: no-repeat;
+}
+
+@media (min-resolution: 192dpi), (-webkit-min-device-pixel-ratio: 2) {
+  .hero {
+    background-image:
+      linear-gradient(var(--opacity-black-20), var(--opacity-black-20)),
+      url("/images/Hero@2x.webp");
+  }
 }
 
 /* Content */
