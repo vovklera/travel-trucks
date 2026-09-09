@@ -10,7 +10,7 @@ type FilterRadioProps<T extends string> = {
   name: string;
   options: Option<T>[];
   value: T | "";
-  onChange: (value: T) => void;
+  onChange: (value: T | "") => void;
 };
 
 export default function FilterRadio<T extends string>({
@@ -30,6 +30,7 @@ export default function FilterRadio<T extends string>({
             name={name}
             value={option.value}
             checked={value === option.value}
+            onClick={() => onChange(value === option.value ? "" : option.value)}
             onChange={() => onChange(option.value)}
             className={css.radio}
           />

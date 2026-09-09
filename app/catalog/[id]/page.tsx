@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { getCamperById, getCamperByIdReviews } from "@/lib/api";
 import CamperDetails from "@/components/Campers/CamperDetails/CamperDetails";
 import { formatText, removeLetters } from "@/components/utils/formatLabel";
-import ReviewsSection from "@/components/Campers/ReviewsSection/ReviewsSection";
+import ReviewsSection from "@/components/ReviewsSection/ReviewsSection";
 
 interface PageProps {
   params: Promise<{ id: string }>;

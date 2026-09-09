@@ -37,6 +37,9 @@ export default function MessageNoCampers({ onClear }: MessageNoCampersProps) {
           <IoCloseOutline className={css.closeButtonIcon} />
           Clear filters
         </button>
+        <button type="button" className={css.viewAllButton} onClick={onClear}>
+          View all campers
+        </button>
       </div>
     </div>
   );

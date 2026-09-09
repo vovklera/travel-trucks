@@ -3,21 +3,11 @@
 import { useRouter } from "next/navigation";
 import css from "./NotFound.module.css";
 
-interface NotFoundProps {
-  isCamperByIdNotFound?: boolean;
-}
-
-export default function NotFound({
-  isCamperByIdNotFound = false,
-}: NotFoundProps) {
+export default function NotFound() {
   const router = useRouter();
 
   const handleGoBack = () => {
-    if (isCamperByIdNotFound) {
-      router.push("/catalog");
-    } else {
-      router.back();
-    }
+    router.push("/");
   };
 
   return (
@@ -33,7 +23,7 @@ export default function NotFound({
         </p>
       </div>
       <button type="button" className={css.goBack} onClick={handleGoBack}>
-        Go back
+        Back to home
       </button>
     </div>
   );
