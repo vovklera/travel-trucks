@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: `TravelTrucks`,
     description:
       "Choose the perfect camper and start planning your next adventure.",
-    url: `${CAMPERS_LIVE_URL}/`,
+    url: `${CAMPERS_LIVE_URL}`,
     siteName: "TravelTrucks",
     images: [
       {

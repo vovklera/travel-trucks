@@ -28,10 +28,10 @@ export async function generateMetadata({ params }: PageProps) {
       siteName: "TravelTrucks",
       images: [
         {
-          url: camper?.coverImage,
+          url: camper?.gallery[0].original,
           width: 1200,
           height: 630,
-          alt: "TravelTrucks",
+          alt: camper?.name,
         },
       ],
       type: "article",
@@ -46,6 +46,7 @@ export default async function CamperPage({ params }: PageProps) {
   if (!camper) {
     notFound();
   }
+
   const reviews = await getCamperByIdReviews(id);
 
   const vehicleBadges = [
