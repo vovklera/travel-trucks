@@ -6,7 +6,7 @@ import {
   QueryClient,
 } from "@tanstack/react-query";
 
-import { fetchCampers, getFilters } from "@/lib/api";
+import { CAMPERS_LIVE_URL, fetchCampers, getFilters } from "@/lib/api";
 import { filterSearchParams } from "@/components/utils/filterParams";
 import CampersClient from "./CampersClient";
 
@@ -14,6 +14,22 @@ export const metadata: Metadata = {
   title: "Camper catalog",
   description:
     "Browse available campers, compare options, and find the right one for your trip.",
+  openGraph: {
+    title: `Camper catalog`,
+    description:
+      "Browse available campers, compare options, and find the right one for your trip.",
+    url: `${CAMPERS_LIVE_URL}/catalog`,
+    siteName: "TravelTrucks",
+    images: [
+      {
+        url: `${CAMPERS_LIVE_URL}/images/Hero.webp`,
+        width: 1200,
+        height: 630,
+        alt: "TravelTrucks",
+      },
+    ],
+    type: "article",
+  },
 };
 
 interface CatalogProps {

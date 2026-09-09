@@ -6,7 +6,8 @@ import { BookingRequest, BookingResponse } from "@/types/booking";
 
 import { filterParams } from "@/components/utils/filterParams";
 
-const CAMPERS_BASE_URL = process.env.NEXT_PUBLIC_CAMPERS_URL;
+export const CAMPERS_BASE_URL = process.env.NEXT_PUBLIC_CAMPERS_URL;
+export const CAMPERS_LIVE_URL = process.env.NEXT_PUBLIC_CAMPERS_LIVE_URL;
 
 const api = axios.create({
   baseURL: CAMPERS_BASE_URL,
