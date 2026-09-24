@@ -20,10 +20,10 @@ export async function generateMetadata({ params }: PageProps) {
 
   return {
     title: camper?.name,
-    description: camper?.description?.slice(0, 30),
+    description: camper?.description?.slice(0, 80),
     openGraph: {
       title: `Camper: ${camper?.name}`,
-      description: camper?.description?.slice(0, 30),
+      description: camper?.description?.slice(0, 80),
       url: `${CAMPERS_LIVE_URL}/catalog/${id}`,
       siteName: "TravelTrucks",
       images: [
